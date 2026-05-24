@@ -29,7 +29,7 @@ function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/projects')
+    fetch('https://noli-portfolio-production.up.railway.app/api/projects')
       .then(res => res.json())
       .then(data => setProjects(data))
   }, [])
