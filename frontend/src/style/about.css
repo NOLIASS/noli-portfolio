@@ -1,6 +1,8 @@
 .about {
   padding: 120px 10%;
   border-top: 1px solid var(--border);
+  scroll-snap-align: start;
+  min-height: 100vh;
 }
 
 .section-label {

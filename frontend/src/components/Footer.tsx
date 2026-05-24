@@ -3,13 +3,10 @@ import '../style/footer.css'
 function Footer() {
   return (
     <footer className="footer" id="contact">
-      <div className="section-label">Contact</div>
+      
 
       <div className="footer-content">
-        <h2 className="footer-title">
-          Let's work<br />
-          <span>together.</span>
-        </h2>
+        
 
         <div className="footer-links">
           <a href="mailto:info@dub-furniture.ua" className="footer-email">

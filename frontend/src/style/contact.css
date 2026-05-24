@@ -1,0 +1,159 @@
+.contact-page {
+  padding: 120px 10%;
+  border-top: 1px solid var(--border);
+}
+
+.me-contact {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  margin-bottom: 60px;
+}
+
+.contact-panels {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.your-contact {
+  background: linear-gradient(135deg, rgba(208, 146, 255, 0.043), rgba(195, 0, 255, 0.14));
+  border: 1.7px solid rgba(154, 4, 165, 0.559);
+  backdrop-filter: blur(10px);
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 420px;
+  width: 100%;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(214, 101, 227, 0.263);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(166, 35, 218, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 8px rgba(183, 0, 255, 0);
+  }
+}
+
+.contact-zagol {
+  font-size: 26px;
+  color: var(--purple-light);
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.contact-text {
+  color: var(--gray);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--purple-light);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.textarea-icon {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  color: var(--purple-light);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.message-input {
+  width: 100%;
+  background-color: rgba(10, 10, 15, 0.6);
+  padding: 10px 12px 10px 38px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.message-input:focus {
+  border-color: var(--purple);
+}
+
+.message-input::placeholder {
+  color: var(--gray);
+}
+
+.message-textarea {
+  width: 100%;
+  background-color: rgba(10, 10, 15, 0.6);
+  padding: 10px 12px 10px 38px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color 0.2s;
+}
+
+.message-textarea:focus {
+  border-color: var(--purple);
+}
+
+.message-textarea::placeholder {
+  color: var(--gray);
+}
+
+
+
+
+
+.my-contact {
+  background: linear-gradient(135deg, rgba(208, 146, 255, 0.043), rgba(195, 0, 255, 0.14));
+  border: 1.7px solid rgba(154, 4, 165, 0.559);
+  backdrop-filter: blur(10px);
+  padding: 32px;
+  border-radius: 16px;
+  max-width: 220px;
+  height: 250px;
+  width: 100%;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: var(--gray);
+  font-size: 28px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--purple-light);
+  transform: translateY(-3px);
+}

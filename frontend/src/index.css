@@ -16,11 +16,44 @@
   --border: rgba(123, 94, 167, 0.2);
 }
 
+#root {
+  overflow: visible;
+  /* щоб не перехоплював скрол */
+}
+
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y proximity;
+  scroll-padding-bottom: 0;
+}
+
 body {
   background-color: var(--bg);
   color: var(--white);
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  min-height: 100%;
+  scroll-padding-bottom: 0;
+  /* прибрали overflow взагалі з body */
+}
+
+.hero,
+.projects,
+.contact-page {
+  scroll-snap-align: start;
+  min-height: 100vh;
+}
+
+.about {
+  scroll-snap-align: start;
+  min-height: 70vh;
+}
+
+.footer {
+  scroll-snap-align: end;
+  min-height: 30vh;
 }
 
 a {
