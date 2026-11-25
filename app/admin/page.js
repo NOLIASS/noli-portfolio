@@ -1,0 +1,16 @@
+import {db} from '@/lib/db';import {isAdmin} from '@/lib/auth';
+import {login,logout,saveItem,deleteItem,toggleOpen,deleteLead} from './actions';
+export const dynamic='force-dynamic';export const metadata={title:'Адмінка',robots:{index:false}};
+const K=[['land','Лендінг'],['biz','Сайт'],['shop','Магазин'],['tool','Інструмент']];
+function ItemForm({x}){return <form action={saveItem} className="box"><input type="hidden" name="id" value={x?x.id:0}/>
+ <div className="row"><input name="title" defaultValue={x?.title} placeholder="Назва" aria-label="Назва"/><select name="kind" defaultValue={x?.kind||'biz'} aria-label="Тип">{K.map(([v,t])=><option key={v} value={v}>{t}</option>)}</select><input name="position" type="number" defaultValue={x?.position??0} aria-label="Порядок"/></div>
+ <textarea name="description" defaultValue={x?.description} placeholder="Опис" aria-label="Опис"/><textarea name="features" defaultValue={x?.features} placeholder="Що входить, кожен пункт з нового рядка" aria-label="Що входить"/>
+ <label style={{display:'flex',gap:8,alignItems:'center'}}><input type="checkbox" name="published" defaultChecked={x?x.published:true}/> Показувати на сайті</label>
+ <div className="row"><button className="btn">{x?'Зберегти':'Додати'}</button>{x&&<button className="danger" formAction={deleteItem}>Видалити</button>}</div></form>}
+export default async function Admin({searchParams}){
+ if(!isAdmin())return <div className="w pg ad"><h1 style={{fontSize:'clamp(34px,5vw,56px)'}}>Адмін<em>-панель</em></h1><form action={login} className="box" style={{maxWidth:420}}><label>Пароль<input name="p" type="password" required autoFocus/></label>{searchParams?.e&&<div className="err">Невірний пароль або ADMIN_PASSWORD не задано.</div>}<button className="btn">Увійти</button></form></div>;
+ const [items,leads,st]=await Promise.all([db.item.findMany({orderBy:[{position:'asc'},{id:'asc'}]}),db.lead.findMany({orderBy:{createdAt:'desc'}}),db.setting.findUnique({where:{key:'open'}})]);
+ return <div className="w pg ad"><div style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:12}}><h1 style={{fontSize:'clamp(34px,5vw,56px)'}}>Адмін<em>-панель</em></h1><form action={logout}><button className="btn sec">Вийти</button></form></div>
+ <form action={toggleOpen} className="box"><h3>Статус</h3><label style={{display:'flex',gap:10,alignItems:'center'}}><input type="checkbox" name="open" defaultChecked={!st||st.value!=='0'}/> Беру нові проєкти</label><button className="btn sec" style={{justifySelf:'start'}}>Зберегти статус</button></form>
+ <h2 style={{marginTop:36,fontSize:30}}>Каталог</h2>{items.map(x=><ItemForm key={x.id} x={x}/>)}<h3 style={{marginTop:24}}>Нова позиція</h3><ItemForm/>
+ <h2 style={{marginTop:36,fontSize:30}}>Заявки ({leads.length})</h2>{leads.length?leads.map(l=><form key={l.id} action={deleteLead} className="lead-i" style={{marginTop:10}}><input type="hidden" name="id" value={l.id}/><b>{l.name}</b> · {l.kind} · {l.contact} · <span className="mut">{l.createdAt.toLocaleString('uk-UA')}</span><br/><span className="mut">{l.message}</span><br/><button className="danger" style={{marginTop:8}}>Видалити</button></form>):<p className="mut">Заявок поки немає.</p>}</div>}
