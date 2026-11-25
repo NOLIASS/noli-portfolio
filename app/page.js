@@ -10,7 +10,8 @@ export default async function Home(){
   <div className={'st'+(open?'':' off')}><b/><span>{open?'Беру нові проєкти':'Зараз зайнятий, пишіть — відповім про терміни'}</span></div>
   <h1><span className="l"><span>Сайт, який працює</span></span><span className="l"><span><em>на ваш бізнес.</em></span></span></h1>
   <p className="lead">Я NOLI, живу в Україні. Роблю лендінги, сайти й адмін-панелі.</p>
-  <div className="cta"><Link className="btn" href="/#contact">Обговорити мій сайт <i>↗</i></Link><Link className="btn sec" href="/catalog">Дивитись каталог</Link></div></div>
+  <div className="cta"><Link className="btn" href="/#contact">Обговорити мій сайт <i>↗</i></Link><Link className="btn sec" href="/catalog">Дивитись каталог</Link></div>
+  <div className="fcs"><div className="fc a"><b>Під ключ</b>Ви розповідаєте про справу, я роблю решту.</div><div className="fc b"><b>На телефоні</b>Більшість клієнтів зайде саме з нього.</div><div className="fc c"><b>Світла й темна</b>Сайт гарний у будь-який час доби.</div></div></div>
  <section id="about" className="sa"><div className="w rv"><h2>Коротко <em>про мене</em></h2><p className="mut">Оберіть, хто ви, і я розповім про себе саме для вас.</p><Audience/></div></section>
  <section className="band" id="how"><div className="w rv"><h2>Як ми працюємо <em>разом</em></h2><p className="mut">Чотири кроки, без зникань і сюрпризів у ціні.</p>
   <div className="steps">{ST.map(([t,d])=><div className="step" key={t}><h3>{t}</h3><p>{d}</p></div>)}</div></div></section>
