@@ -146,10 +146,15 @@ footer a{color:var(--mut)}
 .cap::after{content:"";position:absolute;top:-30%;bottom:-30%;width:42%;left:-70%;background:linear-gradient(100deg,transparent,#ffffff4d,transparent);transform:skewX(-18deg)}
 .key:hover .cap::after{left:130%;transition:left .7s ease}
 .kl{position:relative;width:54px;height:54px;filter:drop-shadow(0 3px 2px #0005);transition:transform .25s cubic-bezier(.3,1.7,.5,1)}
-.key:hover .cap{transform:translateY(-7px);filter:brightness(1.1)}
-.key:hover .kl{transform:scale(1.14) rotate(-4deg)}
-.key.dn .cap,.key:active .cap{transform:translateY(calc(var(--d) - 3px));filter:brightness(1.18);transition-duration:.07s}
-.key.dn .kl,.key:active .kl{transform:scale(.9)}
+.key:hover .cap{transform:translateY(calc(var(--d)*.5));filter:brightness(1.08)}
+.key:hover .kl{transform:scale(1.08)}
+.key:active .cap{transform:translateY(calc(var(--d) - 3px));transition-duration:.06s}
+.key:active .kl{transform:scale(.92)}
+.key:hover::before{box-shadow:inset 0 -4px 0 #0004,0 14px 20px -9px #0009}
+.key:active::before,.key.on::before{box-shadow:inset 0 -4px 0 #0004,0 6px 12px -8px #0009}
+.key.on .cap,.key.on:hover .cap{transform:translateY(calc(var(--d) - 3px));filter:brightness(1.16);box-shadow:inset 0 5px 10px #0006,inset 0 0 0 1.5px #ffffff4d,0 0 30px color-mix(in srgb,var(--k) 75%,transparent)}
+.key.on .cap::before{background:linear-gradient(180deg,#0004,#ffffff10);box-shadow:inset 0 3px 6px #0006,0 1.5px 0 #ffffff30}
+.key.on .kl,.key.on:hover .kl{transform:scale(.92);filter:drop-shadow(0 0 9px #ffffffb0)}
 .key:focus-visible{outline:none}.key:focus-visible .cap{box-shadow:inset 0 3px 0 #ffffff70,0 0 0 4px var(--bg),0 0 0 7px var(--ac)}
 .hk{position:absolute;z-index:1;top:13px;left:17px;font:600 12px Onest,sans-serif;opacity:.75;text-transform:uppercase;text-shadow:0 1px 0 #0003}
 .rg{position:absolute;left:0;right:0;top:0;bottom:var(--d);border-radius:30px;border:3px solid var(--k);pointer-events:none;animation:rg .65s ease-out forwards}
